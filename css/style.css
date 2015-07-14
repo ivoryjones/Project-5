@@ -1,0 +1,50 @@
+#fslink {
+    color: #ff4719;
+}
+
+#input {
+    margin: 10px 0 5px 5px;
+    width: 14em;
+    height: 35px;
+    font-size: 17px;
+    font-family: Times, sans-serif;
+    border: none;
+    -webkit-box-shadow: 2px 2px 5px #6A5ACD;
+    outline: none;
+    position: absolute;
+}
+#search-bar {
+    position: fixed;
+    top:0;
+    z-index: 3;
+}
+#search-container {
+    position: absolute;
+    z-index: 3;
+    margin-top: 50px;
+}
+
+#search-nav {
+    width: 230px;
+    max-height: 250px;
+    background-color: rgba(256,256,256,.8);
+    overflow: scroll;
+}
+
+#scroller {
+    max-height: 250px;
+    overflow: scroll;
+    margin: 0 5px;
+}
+
+#arrow-container {
+    background-color: rgba(256,256,256,.8);
+    max-width: 45px;
+    top: 0;
+}
+
+@media screen and (max-width: 700px) and (orientation:landscape) {
+    #search-container {
+        display: none;
+    }
+}
