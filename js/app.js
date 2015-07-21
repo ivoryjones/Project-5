@@ -106,7 +106,6 @@ function getTipsCallback(tip) {
 
 }
 
-
 // loads Google map
 function loadScript() {
   var script = document.createElement('script');
@@ -125,13 +124,12 @@ function initialize() {
     disableDefaultUI: true,
     mapTypeControl: true,
   };
- 
 
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);//applies map details
   getTips();
   setMarkers(markers);
   setAllMap();
-
+  //functionality for reset button
   function resetMap() {
     var windowWidth = $(window).width();
     if (windowWidth <= 600) {
@@ -139,11 +137,14 @@ function initialize() {
       map.setCenter(mapOptions.center);
     }
     else {
-      map.setZoom(13);
+      map.setZoom(10);
       map.setCenter(mapOptions.center);
     }
   }
- 
+ //add jquery for reset button functiom
+  $("#reset").click(function() {
+    resetMap();
+  });
   $(window).resize(function() {
     resetMap();
   });
@@ -162,7 +163,6 @@ function setAllMap() {
 
 function setMarkers(location) {
   for (i=0; i<location.length; i++){
-
   
     location[i].holdMarker = new google.maps.Marker({
       position: new google.maps.LatLng(location[i].lat, location[i].longitude),
@@ -250,11 +250,20 @@ $("#input").keyup(function() {
   setAllMap();
 });
 
-//allos the list to scroll up and down
+//collapse function added to list. info from github and stackoverflow.com
+var isNavVisible = true;
+function noNav() {
+  $("#search-nav").animate({
+    height: 0,
+  }, 500);
+  $("#arrow").attr("src", "images/downarrow.png");
+  isNavVisible = false;
+}
+
 function yesNav() {
   $("#search-nav").show();
   var scrollerHeight = $("#scroller").height() + 55;
-  if ($(window).height() < 600) {
+  if ($(window).height() < 100) {
     $("#search-nav").animate({
       height: scrollerHeight - 100,
     }, 500, function() {
@@ -268,6 +277,35 @@ function yesNav() {
       $(this).css('height', 'auto').css("max-height", 300);
     });
   }
+  $("#arrow").attr("src", "images/arrow.png");
+  isNavVisible = true;
 }
 
+function hideNav() {
+    if(isNavVisible === true) {
+            noNav();
 
+    } else {
+            yesNav();
+    }
+}
+$("#arrow").click(hideNav);
+
+$(window).resize(function() {
+    var windowWidth = $(window).width();
+    if ($(window).width() < 850 && isNavVisible === true) {
+            noNav();
+        } else if($(window).height() < 600 && isNavVisible === true) {
+            noNav();
+        }
+    if ($(window).width() >= 850 && isNavVisible === false) {
+            if($(window).height() > 600) {
+                yesNav();
+            }
+        } else if($(window).height() >= 600 && isNavVisible === false) {
+            if($(window).width() > 850) {
+                yesNav();
+            }
+        }
+        setAllMap();
+});

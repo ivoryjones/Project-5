@@ -25,3 +25,19 @@ Foursquare API
 Study group with help on adding tips using the foursquare API
 and plenty of web research.
 
+*Changes Made*
+Added additional functionality for usibility. 
+Added a reset button to reset the map to its original location.
+
+Added bootstrap UI to add a collapsible button for the list.
+Unable to get the collapse button to appear or for the list to collapse.
+
+Added code to show a message when connection is lost. 
+
+Added code to make the map resize for multiple screen sizes.
+
+HubSpot Github for offline theme and language, only added JavaScript because css didn't pass validator 
+
+Minifiled inlined css 
+
+changed map.html to index.html
