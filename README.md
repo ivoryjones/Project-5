@@ -1,7 +1,8 @@
 Ivory Jones - Project-5
 Map
 
-To view this project, open map.html in a web browser.
+To view this project, open index.html in a web browser, or visit 
+http://ivoryjones.github.io/Project-5/
 
 I created a map that highlights 4 parks and 1 garden in Richmond, VA.
 
