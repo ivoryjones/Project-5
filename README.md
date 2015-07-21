@@ -36,7 +36,7 @@ Added code to show a message when connection is lost.
 
 Added code to make the map resize for multiple screen sizes.
 
-HubSpot Github for offline theme and language, only added JavaScript because css didn't pass validator 
+HubSpot Github for offline. Installed Eager to my website and added offline js to index.html and css language. CSS passed validation. 
 
 Minifiled inlined css 
 
